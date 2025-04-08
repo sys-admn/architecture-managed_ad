@@ -11,7 +11,7 @@ variable "public_subnet_id" {
 variable "ami_id" {
   description = "The AMI ID for the bastion host"
   type        = string
-  default     = "ami-0f8920d9d8000103b" # Replace with a valid AMI ID
+  default     = "ami-05f08ad7b78afd8cd" # Replace with a valid AMI ID
 }
 
 variable "instance_type" {

@@ -7,7 +7,6 @@ variable "vpc_cidr_block" {
 variable "domain_name" {
   description = "The domain name for the Managed AD"
   type        = string
-
 }
 
 variable "admin_password" {
@@ -19,7 +18,7 @@ variable "admin_password" {
 variable "availability_zones" {
   description = "List of availability zones"
   type        = list(string)
-  default     = ["eu-west-3a", "eu-west-3b"] # Remplacez par les AZ de votre région
+  default     = ["us-east-1a", "us-east-1b"] # Remplacez par les AZ de votre région
 }
 /*variable "ad_ip_addresses" {
   description = "List of IP addresses for the Active Directory DNS resolvers"
