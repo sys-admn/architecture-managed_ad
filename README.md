@@ -46,6 +46,10 @@ terraform-aws-architecture/
 │   │   ├── variables.tf
 │   │   └── outputs.tf
 │   │
+│   ├── ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
 │   └── route53_outbound/
 │       ├── main.tf
 │       ├── variables.tf
