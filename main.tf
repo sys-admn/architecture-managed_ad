@@ -123,6 +123,7 @@ module "ec2" {
       vpc_security_group_id       = module.allow_rdp.security_group_id
         tags = {
     Environment = "Stage"
+    Service ="Ec2Instance"
   }
     }
     "bastion" = {
@@ -135,6 +136,7 @@ module "ec2" {
       vpc_security_group_id       = module.ec2_bastion_sg.security_group_id
         tags = {
     Environment = "Stage"
+    Service ="Ec2Instance"
   }
     }
   }

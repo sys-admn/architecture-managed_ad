@@ -10,6 +10,8 @@ resource "aws_instance" "ec2" {
 
   tags = {
     Name = each.key
+    Service ="Ec2Instance"
+    Environment = "Stage"
   }
 }
 
