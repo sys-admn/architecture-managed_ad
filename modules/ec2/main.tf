@@ -1,20 +1,25 @@
-resource "aws_instance" "windows_server" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  subnet_id     = var.private_subnet_id
-  associate_public_ip_address = true
-  vpc_security_group_ids = [var.vpc_security_group_ids]
-  key_name = var.key_name
+resource "aws_instance" "ec2" {
+  for_each = var.instances
+
+  ami                         = each.value.ami
+  instance_type               = each.value.type
+  subnet_id                   = each.value.subnet_id
+  associate_public_ip_address = each.value.associate_public_ip_address
+  vpc_security_group_ids      = [each.value.vpc_security_group_id]
+  key_name                    = each.value.key_name
 
   tags = {
-    Name = "Windows Server"
+    Name = each.key
   }
 }
 
-resource "aws_eip" "windows_server_eip" {
-  instance = aws_instance.windows_server.id
+resource "aws_eip" "eip" {
+  for_each = var.instances
+
+  instance = aws_instance.ec2[each.key].id
+  domain   = each.key == "bastion" ? "vpc" : null
 
   tags = {
-    Name = "Windows-Server-EIP"
+    Name = each.value.eip_name
   }
 }

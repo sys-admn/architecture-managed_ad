@@ -17,3 +17,7 @@ variable "ad_ip_addresses" {
   description = "List of IP addresses for the Active Directory DNS resolvers"
   type        = list(string)
 }*/
+variable "security_group_id" {
+  description = "The security group ID to associate with the fsx"
+  type        = string
+}
