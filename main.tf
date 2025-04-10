@@ -121,6 +121,9 @@ module "ec2" {
       key_name                    = var.instances["windows-server"].key_name
       eip_name                    = var.instances["windows-server"].eip_name
       vpc_security_group_id       = module.allow_rdp.security_group_id
+        tags = {
+    Environment = "Stage"
+  }
     }
     "bastion" = {
       ami                         = var.instances["bastion"].ami
@@ -130,6 +133,9 @@ module "ec2" {
       key_name                    = var.instances["bastion"].key_name
       eip_name                    = var.instances["bastion"].eip_name
       vpc_security_group_id       = module.ec2_bastion_sg.security_group_id
+        tags = {
+    Environment = "Stage"
+  }
     }
   }
 }
