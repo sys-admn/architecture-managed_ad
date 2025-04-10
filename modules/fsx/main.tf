@@ -1,5 +1,5 @@
 resource "aws_fsx_windows_file_system" "main" {
-  storage_capacity    = 32
+  storage_capacity    = 80
   subnet_ids          = [var.private_subnet_id]
   deployment_type     = "SINGLE_AZ_1"
   throughput_capacity = 32
