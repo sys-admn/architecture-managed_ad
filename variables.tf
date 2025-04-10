@@ -37,7 +37,7 @@ variable "instances" {
     }
     "bastion" = {
       ami                         = "ami-05f08ad7b78afd8cd"
-      type                        = "t2.nano"
+      type                        = "t3.nano"
       associate_public_ip_address = true
       key_name                    = "secure-bastion"
       eip_name                    = "Bastion-EIP"
