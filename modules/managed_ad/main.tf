@@ -8,4 +8,7 @@ resource "aws_directory_service_directory" "main" {
     vpc_id     = var.vpc_id
     subnet_ids = var.private_subnet_ids
   }
+    tags = {
+    Environment = "Stage"
+  }
 }

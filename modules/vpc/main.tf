@@ -5,6 +5,7 @@ resource "aws_vpc" "main" {
 
     tags = {
     Name = "Core-network"
+    Environment = "Stage"
   }
 }
 
@@ -15,6 +16,8 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
    tags = {
     Name = "public-subnet-${count.index + 1}"
+    Environment = "Stage"
+
   }
   
 }
@@ -26,6 +29,8 @@ resource "aws_subnet" "private" {
   availability_zone = element(var.availability_zones, count.index)
   tags = {
     Name = "private-subnet-${count.index + 1}"
+    Environment = "Stage"
+
   }
 }
 
@@ -33,6 +38,8 @@ resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
   tags = {
     Name = "igw-main"
+    Environment = "Stage"
+
   }
 }
 
@@ -45,6 +52,8 @@ resource "aws_route_table" "public" {
   }
    tags = {
     Name = "rt-public"
+    Environment = "Stage"
+
   }
 }
 
@@ -52,12 +61,15 @@ resource "aws_route_table_association" "public" {
   count = var.public_subnet_count
   subnet_id = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public.id
+  
 }
 
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.main.id
    tags = {
     Name = "rt-private"
+    Environment = "Stage"
+
   }
 }
 

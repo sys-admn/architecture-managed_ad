@@ -10,6 +10,9 @@ resource "aws_route53_resolver_endpoint" "outbound" {
   ip_address {
     subnet_id = var.private_subnet_ids[1]
   }
+    tags = {
+    Environment = "Stage"
+  }
 }
 /*
 resource "aws_route53_resolver_rule" "forward_rule" {
