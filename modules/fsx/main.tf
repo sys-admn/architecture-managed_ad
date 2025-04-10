@@ -5,6 +5,7 @@ resource "aws_fsx_windows_file_system" "main" {
   throughput_capacity = 32
   active_directory_id = var.managed_ad_id
   security_group_ids = [var.security_group_id]
-  
-
+  tags = {
+    Environment = "Stage"
+  }
 }
