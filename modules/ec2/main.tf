@@ -24,5 +24,6 @@ resource "aws_eip" "eip" {
   tags = {
     Name = each.value.eip_name
     Service = "EIPService"
+    Environment = "Stage"
   }
 }
